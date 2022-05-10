@@ -1,12 +1,18 @@
-import { context } from 'msw';
 import { createContext, useContext, useState } from 'react';
 
 const CharacterContext = createContext();
 
 const CharacterProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
+  const [info, setInfo] = useState({ prev: null, next: null });
+  const urlParams = (url) => {
+    const formatUrl = new URL(url);
+    return formatUrl.search;
+  };
   return (
-    <CharacterContext.Provider value={{ characters, setCharacters }}>
+    <CharacterContext.Provider
+      value={{ characters, setCharacters, info, setInfo, urlParams }}
+    >
       {children}
     </CharacterContext.Provider>
   );
