@@ -24,7 +24,7 @@ export default function CharacterDetail() {
     <div>loading ...</div>
   ) : (
     <div>
-      <button onClick={() => history.goBack()}>{'<<<'}</button>
+      <button onClick={() => history.goBack()}>{'Go Back'}</button>
       {character.name}{' '}
       <img src={character.image} alt={`image of ${character.name}`} />
     </div>
